@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<style media="screen">
+      .title{
+          color: #17A2B8; 
+          font-size: 40px;
+      }
+    
+    .main{
+        background-color:#e9ecef;
+    }
+  </style>
+</head>
+
+<body class="main">
+
+  {% include "quiz/navbar.html" %}
+  <br><br>
+
+  <center>
+      <br> <br>
+    <h3 class="title">Send your feedback !</h3>
+      <br>
+    <form method="POST" autocomplete="off" >
+      <!-- Very Important csrf Token -->
+      {% csrf_token %}
+      <div class="form-group">
+        <h3>{{ form.as_p }}</h3>
+        <br>
+        <input type="submit" value="Send Message" class='btn btn-primary btn-lg'>
+      </div>
+    </form>
+  </center>
+
+  {% include "quiz/footer.html" %}
+</body>
+
+</html>
